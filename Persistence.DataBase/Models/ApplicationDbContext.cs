@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Persistence.DataBase.Config;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,5 +27,26 @@ namespace Persistence.DataBase.Models
         public virtual DbSet<TipoPago> TipoPago  { get; set; }
         public virtual DbSet<VariedadPizza> VariedadPizza { get; set; }
         public virtual DbSet<Vendedor> Vendedor { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+        {
+
+            new PedidoConfig(modelBuilder.Entity<Pedido>());
+            new ClienteConfig(modelBuilder.Entity<Cliente>());
+            new DetallePedidoConfig(modelBuilder.Entity<DetallePedido>());
+            new EstadoFacturaConfig(modelBuilder.Entity<EstadoFactura>());
+            new EstadoPedidoConfig(modelBuilder.Entity<EstadoPedido>());
+            new FacturaConfig(modelBuilder.Entity<Factura>());
+            new IngredienteConfig(modelBuilder.Entity<Ingredientes>());
+            new PizzaConfig(modelBuilder.Entity<Pizza>());
+            new TamañoPizzaConfig(modelBuilder.Entity<TamañoPizza>());
+            new TipoPagoConfig(modelBuilder.Entity<TipoPago>());
+            new TipoPizzaConfig(modelBuilder.Entity<TipoPizza>());
+            new VariedadPizzaConfig(modelBuilder.Entity<VariedadPizza>());
+            new VendedorConfig(modelBuilder.Entity<Vendedor>());
+
+            base.OnModelCreating(modelBuilder);
+
+        }
     }
 }

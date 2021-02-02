@@ -18,7 +18,7 @@ namespace Persistence.DataBase.Config
             entityBuilder.Property(x => x.precio).HasMaxLength(50).IsRequired();
             entityBuilder.Property(x => x.idTamañoPizza).HasMaxLength(100).IsRequired();
             entityBuilder.Property(x => x.idTipoPizza).HasMaxLength(50).IsRequired();
-            entityBuilder.Property(x => x.idVariedadPizza)
+            entityBuilder.Property(x => x.idVariedadPizza);
 
         }
     }
